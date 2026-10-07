@@ -30,7 +30,7 @@ export function ProgressBar({
     <div className={cn("w-full flex flex-col gap-1", className)}>
       <div
         className={cn(
-          "relative w-full overflow-hidden rounded-full bg-zinc-100",
+          "relative w-full overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800",
           heights[height]
         )}
         role="progressbar"
@@ -41,14 +41,14 @@ export function ProgressBar({
         <div
           className={cn(
             "h-full rounded-full transition-all duration-500 ease-out",
-            "bg-indigo-500",
+            "bg-indigo-500 dark:bg-indigo-500",
             indicatorClassName
           )}
           style={{ width: `${percentage}%` }}
         />
       </div>
       {showLabel && (
-        <span className="text-xs text-zinc-500 font-mono tabular-nums text-right">
+        <span className="text-xs text-zinc-500 dark:text-zinc-400 font-mono tabular-nums text-right">
           {Math.round(percentage)}%
         </span>
       )}

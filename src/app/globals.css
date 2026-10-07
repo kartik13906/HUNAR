@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
     --background: #fafafa;
@@ -20,6 +22,25 @@
     --ring: #818cf8;
   }
 
+  .dark {
+    --background: #09090b;
+    --foreground: #f4f4f5;
+    --card: #18181b;
+    --card-foreground: #f4f4f5;
+    --border: #27272a;
+    --border-subtle: #18181b;
+    --input-border: #3f3f46;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --primary-active: #4338ca;
+    --primary-foreground: #ffffff;
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+    --accent: #1e1b4b;
+    --accent-foreground: #e0e7ff;
+    --ring: #6366f1;
+  }
+
   *,
   *::before,
   *::after {
@@ -38,11 +59,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   ::selection {
     background-color: #ddd6fe;
     color: #2e1065;
+  }
+
+  .dark ::selection {
+    background-color: #4c1d95;
+    color: #ede9fe;
   }
 
   /* Ensure focus rings are visible and consistent */
@@ -65,8 +92,14 @@
   background: #d4d4d8;
   border-radius: 9999px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+}
 ::-webkit-scrollbar-thumb:hover {
   background: #a1a1aa;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
 }
 
 /* ─── Transitions ──────────────────────────────────────────────── */

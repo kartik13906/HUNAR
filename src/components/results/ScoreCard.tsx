@@ -29,28 +29,28 @@ export function ScoreCard({
   };
 
   return (
-    <div className="rounded-2xl border border-zinc-200/90 bg-white p-6 sm:p-8 shadow-xs">
+    <div className="rounded-2xl border border-zinc-200/90 bg-white dark:border-zinc-800 dark:bg-zinc-900 p-6 sm:p-8 shadow-xs transition-colors">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center sm:text-left">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
               Evaluation Result
             </span>
-            <span className="text-zinc-300">•</span>
+            <span className="text-zinc-300 dark:text-zinc-700">•</span>
             <Badge variant="secondary" className="text-xs">
               {articleCategory}
             </Badge>
           </div>
 
-          <h2 className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-zinc-500">
+          <h2 className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             Your Comprehension Score
           </h2>
 
           <div className="flex items-baseline justify-center sm:justify-start gap-2">
-            <span className="font-mono text-4xl sm:text-5xl font-black tracking-tight text-zinc-950">
+            <span className="font-mono text-4xl sm:text-5xl font-black tracking-tight text-zinc-950 dark:text-zinc-50">
               {score.toFixed(1)}
             </span>
-            <span className="text-lg font-semibold text-zinc-400 font-mono">
+            <span className="text-lg font-semibold text-zinc-400 dark:text-zinc-500 font-mono">
               / 10
             </span>
           </div>
@@ -62,7 +62,7 @@ export function ScoreCard({
             >
               {performanceLabel}
             </Badge>
-            <span className="text-xs text-zinc-500">
+            <span className="text-xs text-zinc-500 dark:text-zinc-400">
               Assessed via Active Recall
             </span>
           </div>
@@ -71,7 +71,7 @@ export function ScoreCard({
         {/* Circular / Ring Score Indicator */}
         <div className="flex flex-col items-center justify-center p-2 shrink-0">
           <ScoreRing score={score} size={110} strokeWidth={9} />
-          <span className="text-[11px] font-medium text-zinc-400 mt-2">
+          <span className="text-[11px] font-medium text-zinc-400 dark:text-zinc-500 mt-2">
             Weighted Rubric Score
           </span>
         </div>

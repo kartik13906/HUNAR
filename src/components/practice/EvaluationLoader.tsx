@@ -29,28 +29,28 @@ export function EvaluationLoader({ articleTitle }: EvaluationLoaderProps) {
     <div
       role="status"
       aria-live="polite"
-      className="w-full max-w-xl mx-auto my-12 rounded-2xl border border-zinc-200/90 bg-white p-8 sm:p-12 shadow-sm text-center space-y-8"
+      className="w-full max-w-xl mx-auto my-12 rounded-2xl border border-zinc-200/90 bg-white dark:border-zinc-800 dark:bg-zinc-900 p-8 sm:p-12 shadow-sm text-center space-y-8 transition-colors"
     >
       {/* Central subtle icon indicator */}
       <div className="relative mx-auto flex h-20 w-20 items-center justify-center">
         {/* Soft pulse background ring */}
-        <div className="absolute inset-0 rounded-full bg-indigo-50 animate-ping opacity-35" />
-        <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600 text-white shadow-md">
+        <div className="absolute inset-0 rounded-full bg-indigo-50 dark:bg-indigo-950/60 animate-ping opacity-35" />
+        <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600 dark:bg-indigo-500 text-white shadow-md">
           <Brain className="h-8 w-8 stroke-[1.8] animate-pulse" />
         </div>
       </div>
 
       <div className="space-y-2">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
           Evaluating your understanding...
         </h2>
-        <p className="text-xs sm:text-sm text-zinc-500 max-w-md mx-auto line-clamp-1">
+        <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto line-clamp-1">
           Analyzing recall for &ldquo;{articleTitle}&rdquo;
         </p>
       </div>
 
       {/* Progressive evaluation steps */}
-      <div className="max-w-sm mx-auto space-y-2.5 text-left border-t border-zinc-100 pt-6">
+      <div className="max-w-sm mx-auto space-y-2.5 text-left border-t border-zinc-100 dark:border-zinc-800 pt-6">
         {EVALUATION_STEPS.map((step, idx) => {
           const isDone = idx < currentStepIdx;
           const isCurrent = idx === currentStepIdx;
@@ -60,18 +60,18 @@ export function EvaluationLoader({ articleTitle }: EvaluationLoaderProps) {
               key={idx}
               className={`flex items-center gap-3 text-xs transition-opacity duration-300 ${
                 isDone
-                  ? "text-zinc-700 font-medium"
+                  ? "text-zinc-700 dark:text-zinc-300 font-medium"
                   : isCurrent
-                  ? "text-indigo-700 font-semibold"
-                  : "text-zinc-400 opacity-60"
+                  ? "text-indigo-700 dark:text-indigo-300 font-semibold"
+                  : "text-zinc-400 dark:text-zinc-600 opacity-60"
               }`}
             >
               {isDone ? (
-                <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0" />
+                <CheckCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               ) : isCurrent ? (
-                <div className="h-4 w-4 rounded-full border-2 border-indigo-600 border-t-transparent animate-spin shrink-0" />
+                <div className="h-4 w-4 rounded-full border-2 border-indigo-600 dark:border-indigo-400 border-t-transparent animate-spin shrink-0" />
               ) : (
-                <div className="h-4 w-4 rounded-full border border-zinc-300 shrink-0" />
+                <div className="h-4 w-4 rounded-full border border-zinc-300 dark:border-zinc-700 shrink-0" />
               )}
               <span>{step}</span>
             </div>
@@ -79,7 +79,7 @@ export function EvaluationLoader({ articleTitle }: EvaluationLoaderProps) {
         })}
       </div>
 
-      <div className="pt-2 text-[11px] text-zinc-400">
+      <div className="pt-2 text-[11px] text-zinc-400 dark:text-zinc-500">
         AI Evaluation Framework v2.4 • Semantic Similarity &amp; Concept Coverage
       </div>
     </div>

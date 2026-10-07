@@ -19,10 +19,10 @@ export function ArticleSelector({
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <label className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+        <label className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           Select Reading Article
         </label>
-        <span className="text-xs text-zinc-400">
+        <span className="text-xs text-zinc-400 dark:text-zinc-500">
           {MOCK_ARTICLES.length} available papers
         </span>
       </div>
@@ -38,8 +38,8 @@ export function ArticleSelector({
               onClick={() => onSelectArticle(art)}
               className={`text-left p-3.5 rounded-xl border transition-all text-xs flex flex-col justify-between gap-3 ${
                 isSelected
-                  ? "border-indigo-600 bg-indigo-50/40 ring-1 ring-indigo-600 shadow-xs"
-                  : "border-zinc-200 bg-white hover:border-zinc-300 hover:bg-zinc-50/60"
+                  ? "border-indigo-600 bg-indigo-50/40 ring-1 ring-indigo-600 dark:border-indigo-500 dark:bg-indigo-950/40 dark:ring-indigo-500 shadow-xs"
+                  : "border-zinc-200 bg-white hover:border-zinc-300 hover:bg-zinc-50/60 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700 dark:hover:bg-zinc-800/60"
               }`}
             >
               <div className="space-y-1.5">
@@ -53,12 +53,12 @@ export function ArticleSelector({
                     </span>
                   )}
                 </div>
-                <h4 className="font-semibold text-zinc-900 text-xs line-clamp-2 leading-snug">
+                <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 text-xs line-clamp-2 leading-snug">
                   {art.title}
                 </h4>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-zinc-600 pt-2 border-t border-zinc-100">
+              <div className="flex items-center justify-between text-[11px] text-zinc-600 dark:text-zinc-400 pt-2 border-t border-zinc-100 dark:border-zinc-800">
                 <span className="flex items-center gap-1 font-mono">
                   <Clock className="h-3 w-3" />
                   {formatTime(art.readingTimeSeconds)}

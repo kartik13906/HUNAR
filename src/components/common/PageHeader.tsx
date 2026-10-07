@@ -20,7 +20,7 @@ export function PageHeader({
   return (
     <div
       className={cn(
-        "flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-zinc-200/80 mb-8",
+        "flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-zinc-200/80 dark:border-zinc-800 mb-8 transition-colors",
         className
       )}
     >
@@ -30,11 +30,11 @@ export function PageHeader({
             {badge}
           </Badge>
         )}
-        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
           {title}
         </h1>
         {description && (
-          <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
             {description}
           </p>
         )}

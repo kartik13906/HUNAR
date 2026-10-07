@@ -17,13 +17,13 @@ export function ScoreBreakdown({ breakdown }: ScoreBreakdownProps) {
   ];
 
   return (
-    <Card className="border-zinc-200/90">
+    <Card className="border-zinc-200/90 dark:border-zinc-800">
       <CardHeader className="pb-3">
         <div className="flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-zinc-100 text-zinc-700">
+          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
             <BarChart3 className="h-3.5 w-3.5" />
           </div>
-          <CardTitle className="text-base font-semibold text-zinc-900">
+          <CardTitle className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
             Score Breakdown
           </CardTitle>
         </div>
@@ -33,22 +33,22 @@ export function ScoreBreakdown({ breakdown }: ScoreBreakdownProps) {
           {criteria.map((item) => (
             <div
               key={item.label}
-              className="rounded-lg border border-zinc-100 bg-zinc-50/60 p-3.5 space-y-2"
+              className="rounded-lg border border-zinc-100 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/60 p-3.5 space-y-2 transition-colors"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-xs font-semibold text-zinc-800 block">
+                  <span className="text-xs font-semibold text-zinc-800 dark:text-zinc-200 block">
                     {item.label}
                   </span>
-                  <span className="text-[11px] text-zinc-600 block">
+                  <span className="text-[11px] text-zinc-600 dark:text-zinc-400 block">
                     {item.desc}
                   </span>
                 </div>
                 <div className="text-right">
-                  <span className="font-mono text-sm font-bold text-zinc-900">
+                  <span className="font-mono text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     {item.value}
                   </span>
-                  <span className="text-[11px] text-zinc-600 font-mono">/10</span>
+                  <span className="text-[11px] text-zinc-600 dark:text-zinc-500 font-mono">/10</span>
                 </div>
               </div>
 
@@ -57,10 +57,10 @@ export function ScoreBreakdown({ breakdown }: ScoreBreakdownProps) {
                 max={100}
                 indicatorClassName={
                   item.value >= 8.5
-                    ? "bg-emerald-600"
+                    ? "bg-emerald-600 dark:bg-emerald-500"
                     : item.value >= 7.5
-                    ? "bg-indigo-600"
-                    : "bg-amber-500"
+                    ? "bg-indigo-600 dark:bg-indigo-500"
+                    : "bg-amber-500 dark:bg-amber-400"
                 }
               />
             </div>

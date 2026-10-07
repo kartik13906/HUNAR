@@ -72,14 +72,14 @@ export default function PracticePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FCFCFD] py-8 sm:py-12">
+    <div className="min-h-screen bg-[#FCFCFD] dark:bg-zinc-950 py-8 sm:py-12 transition-colors">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-6">
         {/* Practice Top Navigation / Utility Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-2">
-          <div className="flex items-center gap-2 text-xs text-zinc-500">
-            <span className="font-semibold text-zinc-800">Practice Session</span>
+          <div className="flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400">
+            <span className="font-semibold text-zinc-800 dark:text-zinc-200">Practice Session</span>
             <span>/</span>
-            <span className="capitalize font-medium text-indigo-600">
+            <span className="capitalize font-medium text-indigo-600 dark:text-indigo-400">
               {practicePhase === "reading"
                 ? "Reading Phase"
                 : practicePhase === "answering"
@@ -95,19 +95,19 @@ export default function PracticePage() {
               <button
                 type="button"
                 onClick={() => setShowArticlePicker(!showArticlePicker)}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-2.5 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50 transition-colors shadow-2xs"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 px-2.5 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors shadow-2xs"
               >
-                <Layers className="h-3.5 w-3.5 text-zinc-500" />
+                <Layers className="h-3.5 w-3.5 text-zinc-500 dark:text-zinc-400" />
                 <span>{showArticlePicker ? "Hide Papers" : "Change Article"}</span>
               </button>
             )}
             <button
               type="button"
               onClick={handleRestart}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-2.5 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50 transition-colors shadow-2xs"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 px-2.5 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors shadow-2xs"
               title="Reset practice with initial timer"
             >
-              <RotateCcw className="h-3.5 w-3.5 text-zinc-500" />
+              <RotateCcw className="h-3.5 w-3.5 text-zinc-500 dark:text-zinc-400" />
               <span>Reset</span>
             </button>
           </div>
@@ -115,7 +115,7 @@ export default function PracticePage() {
 
         {/* Collapsible Article Picker (Reading Phase only) */}
         {showArticlePicker && practicePhase === "reading" && (
-          <div className="p-4 rounded-2xl border border-zinc-200 bg-zinc-50/80 mb-6">
+          <div className="p-4 rounded-2xl border border-zinc-200 bg-zinc-50/80 dark:border-zinc-800 dark:bg-zinc-900/80 mb-6 transition-colors">
             <ArticleSelector
               currentArticleId={currentArticle.id}
               onSelectArticle={(art) => {

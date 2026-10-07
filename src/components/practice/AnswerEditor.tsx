@@ -60,23 +60,23 @@ export function AnswerEditor({
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-3xl mx-auto space-y-6">
       {/* Header Prompt */}
-      <div className="space-y-2 rounded-2xl border border-zinc-200/90 bg-white p-6 sm:p-8 shadow-xs">
-        <div className="inline-flex items-center gap-2 rounded-md bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-700">
+      <div className="space-y-2 rounded-2xl border border-zinc-200/90 bg-white dark:border-zinc-800 dark:bg-zinc-900 p-6 sm:p-8 shadow-xs transition-colors">
+        <div className="inline-flex items-center gap-2 rounded-md bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-1 text-xs font-semibold text-indigo-700 dark:text-indigo-300">
           <PenLine className="h-3.5 w-3.5" />
           <span>Active Recall Phase</span>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
           Now explain what you understood.
         </h2>
 
-        <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
+        <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
           Write the main idea and important concepts in your own words. Do not
           worry about using the exact wording from the article.
         </p>
 
-        <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-zinc-500">
-          <span className="font-medium text-zinc-700">
+        <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="font-medium text-zinc-700 dark:text-zinc-300">
             Topic: {article.category}
           </span>
           <span>•</span>
@@ -85,11 +85,11 @@ export function AnswerEditor({
       </div>
 
       {/* Writing Container */}
-      <div className="rounded-2xl border border-zinc-200/90 bg-white p-6 sm:p-8 shadow-xs space-y-4">
+      <div className="rounded-2xl border border-zinc-200/90 bg-white dark:border-zinc-800 dark:bg-zinc-900 p-6 sm:p-8 shadow-xs space-y-4 transition-colors">
         <div className="space-y-1">
           <label
             htmlFor="student-response"
-            className="block text-xs font-semibold uppercase tracking-wider text-zinc-500"
+            className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400"
           >
             Your Explanation
           </label>
@@ -105,7 +105,7 @@ export function AnswerEditor({
                 }
               }}
               placeholder="Explain the article in your own words..."
-              className="w-full rounded-xl border border-zinc-300 p-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 leading-relaxed font-sans resize-y min-h-[220px]"
+              className="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 p-4 text-base text-zinc-900 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:border-indigo-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 leading-relaxed font-sans resize-y min-h-[220px]"
               autoFocus
             />
           </div>
@@ -122,7 +122,7 @@ export function AnswerEditor({
         {validationError && (
           <div
             role="alert"
-            className="flex items-center gap-2 rounded-lg bg-rose-50 border border-rose-200 p-3 text-xs text-rose-700 font-medium"
+            className="flex items-center gap-2 rounded-lg bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800/60 p-3 text-xs text-rose-700 dark:text-rose-300 font-medium"
           >
             <AlertCircle className="h-4 w-4 shrink-0" />
             <span>{validationError}</span>
@@ -130,11 +130,11 @@ export function AnswerEditor({
         )}
 
         {/* Form Actions */}
-        <div className="pt-3 border-t border-zinc-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
           <button
             type="button"
             onClick={handleFillSample}
-            className="inline-flex items-center justify-center gap-1.5 text-xs text-indigo-600 hover:text-indigo-800 font-medium hover:underline py-1.5"
+            className="inline-flex items-center justify-center gap-1.5 text-xs text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium hover:underline py-1.5"
             title="Auto-fill a realistic student response for rapid testing"
           >
             <Sparkles className="h-3.5 w-3.5" />
@@ -154,10 +154,10 @@ export function AnswerEditor({
       </div>
 
       {/* Writing Tips */}
-      <div className="rounded-xl border border-zinc-200/80 bg-zinc-50/70 p-4 text-xs text-zinc-600 flex items-start gap-3">
-        <HelpCircle className="h-4 w-4 text-zinc-400 shrink-0 mt-0.5" />
+      <div className="rounded-xl border border-zinc-200/80 bg-zinc-50/70 dark:border-zinc-800 dark:bg-zinc-900/60 p-4 text-xs text-zinc-600 dark:text-zinc-400 flex items-start gap-3">
+        <HelpCircle className="h-4 w-4 text-zinc-400 dark:text-zinc-500 shrink-0 mt-0.5" />
         <div className="space-y-1">
-          <p className="font-semibold text-zinc-800">Recall Guidelines</p>
+          <p className="font-semibold text-zinc-800 dark:text-zinc-200">Recall Guidelines</p>
           <p>
             Aim for conceptual clarity. Focus on: (1) what problem the article introduces,
             (2) how the mechanism works, and (3) any trade-offs or constraints highlighted by the author.

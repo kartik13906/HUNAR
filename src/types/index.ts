@@ -44,10 +44,11 @@ export interface EvaluationResult {
 export interface StudentProfile {
   name: string;
   email: string;
-  institution: string;
+  institution?: string;
   fieldOfStudy: string;
-  academicYear: string;
+  academicYear?: string;
   avatarUrl?: string;
   joinedDate: string;
-  targetDailyPractice: number;
+  targetDailyPractice?: number;
 }
+
